@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		580C53E21F87741F00706198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580C53E11F87741F00706198 /* AppDelegate.swift */; };
 		580C53E41F87741F00706198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580C53E31F87741F00706198 /* ViewController.swift */; };
-		580C53E71F87741F00706198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580C53E51F87741F00706198 /* Main.storyboard */; };
 		580C53EA1F87741F00706198 /* KindleClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 580C53E81F87741F00706198 /* KindleClone.xcdatamodeld */; };
 		580C53EC1F87741F00706198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580C53EB1F87741F00706198 /* Assets.xcassets */; };
 		580C53EF1F87741F00706198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580C53ED1F87741F00706198 /* LaunchScreen.storyboard */; };
+		580C53F71F8775E100706198 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580C53F61F8775E100706198 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		580C53DE1F87741F00706198 /* KindleClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KindleClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		580C53E11F87741F00706198 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		580C53E31F87741F00706198 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		580C53E61F87741F00706198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		580C53E91F87741F00706198 /* KindleClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindleClone.xcdatamodel; sourceTree = "<group>"; };
 		580C53EB1F87741F00706198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		580C53EE1F87741F00706198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		580C53F01F87741F00706198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		580C53F61F8775E100706198 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,11 @@
 			children = (
 				580C53E11F87741F00706198 /* AppDelegate.swift */,
 				580C53E31F87741F00706198 /* ViewController.swift */,
-				580C53E51F87741F00706198 /* Main.storyboard */,
 				580C53EB1F87741F00706198 /* Assets.xcassets */,
 				580C53ED1F87741F00706198 /* LaunchScreen.storyboard */,
 				580C53F01F87741F00706198 /* Info.plist */,
 				580C53E81F87741F00706198 /* KindleClone.xcdatamodeld */,
+				580C53F61F8775E100706198 /* Models.swift */,
 			);
 			path = KindleClone;
 			sourceTree = "<group>";
@@ -129,7 +129,6 @@
 			files = (
 				580C53EF1F87741F00706198 /* LaunchScreen.storyboard in Resources */,
 				580C53EC1F87741F00706198 /* Assets.xcassets in Resources */,
-				580C53E71F87741F00706198 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,20 +142,13 @@
 				580C53E41F87741F00706198 /* ViewController.swift in Sources */,
 				580C53EA1F87741F00706198 /* KindleClone.xcdatamodeld in Sources */,
 				580C53E21F87741F00706198 /* AppDelegate.swift in Sources */,
+				580C53F71F8775E100706198 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		580C53E51F87741F00706198 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				580C53E61F87741F00706198 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		580C53ED1F87741F00706198 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
