@@ -13,6 +13,9 @@
 		580C53EC1F87741F00706198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580C53EB1F87741F00706198 /* Assets.xcassets */; };
 		580C53EF1F87741F00706198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 580C53ED1F87741F00706198 /* LaunchScreen.storyboard */; };
 		580C53F71F8775E100706198 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580C53F61F8775E100706198 /* Models.swift */; };
+		5810AAF01F99D875003D32EC /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5810AAEF1F99D875003D32EC /* PagerViewController.swift */; };
+		5810AAF21F99EEC6003D32EC /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5810AAF11F99EEC6003D32EC /* PageCell.swift */; };
+		5852E0B81F8F8CDB00C7CE6C /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852E0B71F8F8CDB00C7CE6C /* BookCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		580C53EE1F87741F00706198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		580C53F01F87741F00706198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		580C53F61F8775E100706198 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		5810AAEF1F99D875003D32EC /* PagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
+		5810AAF11F99EEC6003D32EC /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
+		5852E0B71F8F8CDB00C7CE6C /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				580C53F01F87741F00706198 /* Info.plist */,
 				580C53E81F87741F00706198 /* KindleClone.xcdatamodeld */,
 				580C53F61F8775E100706198 /* Models.swift */,
+				5852E0B71F8F8CDB00C7CE6C /* BookCell.swift */,
+				5810AAEF1F99D875003D32EC /* PagerViewController.swift */,
+				5810AAF11F99EEC6003D32EC /* PageCell.swift */,
 			);
 			path = KindleClone;
 			sourceTree = "<group>";
@@ -139,10 +148,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5810AAF01F99D875003D32EC /* PagerViewController.swift in Sources */,
 				580C53E41F87741F00706198 /* ViewController.swift in Sources */,
 				580C53EA1F87741F00706198 /* KindleClone.xcdatamodeld in Sources */,
 				580C53E21F87741F00706198 /* AppDelegate.swift in Sources */,
 				580C53F71F8775E100706198 /* Models.swift in Sources */,
+				5852E0B81F8F8CDB00C7CE6C /* BookCell.swift in Sources */,
+				5810AAF21F99EEC6003D32EC /* PageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +312,7 @@
 				580C53F51F87741F00706198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -8,14 +8,36 @@
 
 import Foundation
 
+//
+//  Models.swift
+//  KindleLBTA
+//
+//  Created by Brian Voong on 12/21/16.
+//  Copyright © 2016 Lets Build That App. All rights reserved.
+//
 
-class Book{
+import Foundation
+import UIKit
 
-    var name: String?
-    var auther: String?
+class Book {
+    let title: String
+    let author: String
+    let pages: [Page]
+    let image: UIImage
+    init(title: String, author: String,image: UIImage ,pages: [Page]) {
+        self.title = title
+        self.author = author
+        self.image = image
+        self.pages = pages
+    }
 }
 
-class Page{
-    var text: String?
-    var number : Int?
+class Page {
+    let number: Int
+    let text: String
+    
+    init(number: Int, text: String) {
+        self.number = number
+        self.text = text
+    }
 }
