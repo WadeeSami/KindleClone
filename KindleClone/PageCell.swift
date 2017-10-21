@@ -27,7 +27,7 @@ class PageCell : UICollectionViewCell {
     var pageLabel : UILabel  = {
         var label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Some Text Some TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome Text"
+        //label.text = "Some Text Some TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome TextSome Text"
         //label.textAlignment = .center
         label.numberOfLines =  0
         return label

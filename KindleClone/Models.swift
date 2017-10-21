@@ -20,24 +20,47 @@ import Foundation
 import UIKit
 
 class Book {
+    
     let title: String
     let author: String
-    let pages: [Page]
-    let image: UIImage
-    init(title: String, author: String,image: UIImage ,pages: [Page]) {
+    var pages: [Page]
+    //let image: UIImage
+    var coverImageUrl : String
+    
+    
+    
+    init(_ dict:[String:Any]) {
+        let title = dict["title"] as? String ?? ""
+        let author = dict["author"] as? String ?? ""
+        print(dict)
         self.title = title
         self.author = author
-        self.image = image
-        self.pages = pages
+        self.coverImageUrl  = dict["coverImageUrl"] as? String ?? ""
+        //self.image = #imageLiteral(resourceName: "bill_gates")
+        self.pages = []
+        var pagesCollection = [Page]()
+        if let pageDictionaries = dict["pages"] as? [[String:Any]] {
+            for pageDict in pageDictionaries{
+                
+                if let text = pageDict["text"] as? String {
+                    let page = Page(number: 0, text: text)
+                    
+                    pagesCollection.append(page)
+                }
+            }
+            
+            self.pages = pagesCollection
+        }
     }
 }
 
-class Page {
-    let number: Int
-    let text: String
-    
-    init(number: Int, text: String) {
-        self.number = number
-        self.text = text
+    class Page {
+        let number: Int
+        let text: String
+        
+        init(number: Int, text: String) {
+            self.number = number
+            self.text = text
+        }
     }
-}
+

@@ -14,7 +14,32 @@ class BookCell: UITableViewCell {
         didSet{
             self.bookAuthorLabel.text = book?.author
             self.bookTitleLabel.text = book?.title
-            self.bookImage.image = book?.image
+            //self.bookImage.image = book?.image
+            
+            //get the image using the url
+            if let url = URL(string: (book?.coverImageUrl)!) {
+                URLSession.shared.dataTask(with: url, completionHandler: {(data , response, error) in
+                    
+                    if error != nil{
+                        print ("an error has occured when fetching images")
+                        return
+                    }
+                    
+                    guard let data = data else {
+                        return
+                    }
+                    
+                    
+                    var cellImage :UIImage? = UIImage(data: data)
+                    
+                    DispatchQueue.main.async {
+                        self.bookImage.image = cellImage
+                    }
+                    
+                }).resume()
+                
+                
+            }
         }
     }
     private var bookTitleLabel : UILabel = {
@@ -47,7 +72,7 @@ class BookCell: UITableViewCell {
         
         addSubview(self.bookImage)
         //add the image
-         bookImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8.0).isActive = true
+        bookImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8.0).isActive = true
         
         bookImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 8.0).isActive = true
         

@@ -16,7 +16,8 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //view.backgroundColor = UIColor.red
-        setupBooks()
+       // setupBooks()
+        fetchBooks()
         navigationItem.title = "Kindle"
         // remove additional cells from table
         tableView.tableFooterView = UIView()
@@ -46,32 +47,53 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedBook = books?[indexPath.row]
         //present a navigation comtroller with a collectionviewcomtroller inside
         let layout = UICollectionViewFlowLayout()
         let pageViewController = PagerViewController(collectionViewLayout: layout)
+        pageViewController.book = selectedBook
         let navigationController = UINavigationController(rootViewController: pageViewController)
         present(navigationController, animated: false, completion: nil)
         
     }
-    func setupBooks() {
-        let page1 = Page(number: 1, text: "Text for the first page")
-        let page2 = Page(number: 2, text: "This is text for second page")
         
-        let pages = [page1, page2]
-        let image1 : UIImage = #imageLiteral(resourceName: "steve_jobs")
-        let book = Book(title: "Steve Jobs", author: "Walter Isaacson",image:image1 ,pages: pages)
+    func fetchBooks(){
         
-        let image2 : UIImage = #imageLiteral(resourceName: "bill_gates")
-        let book2 = Book(title: "Bill Gates: A Biography", author: "Michael Becraft", image: image2, pages: [
-            Page(number: 1, text: "Text for page 1"),
-            Page(number: 2, text: "Text for page 2"),
-            Page(number: 3, text: "Text for page 3"),
-            Page(number: 4, text: "Text for page 4")
-            ])
-        
-        self.books = [book, book2]
+        if let url = URL(string: "https://letsbuildthatapp-videos.s3-us-west-2.amazonaws.com/kindle.json") {
+            
+            URLSession.shared.dataTask(with: url, completionHandler: {
+                (data, response, error) in
+                
+                
+                if error == nil, let data = data {
+                    
+                    do{
+                        let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                        let bookDictionaties = json as! [[String:Any]]
+                        self.books = []
+                        for bookDict in bookDictionaties {
+                            let newBook = Book(bookDict)
+                            self.books?.append(newBook)
+                            //print(newBook.author)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            //print(books)
+                            self.tableView.reloadData()
+                        }
+                    }catch let jsonError{
+                        print("Failed to parse json properly")
+                    }
+                    //for book in booksD
+                }else{
+                    print ("Unable to fetch the data ")
+                }
+                
+            }).resume()
+            
+            
+        }
     }
-
-
+    
 }
 
