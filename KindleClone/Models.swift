@@ -32,7 +32,7 @@ class Book {
     init(_ dict:[String:Any]) {
         let title = dict["title"] as? String ?? ""
         let author = dict["author"] as? String ?? ""
-        print(dict)
+        
         self.title = title
         self.author = author
         self.coverImageUrl  = dict["coverImageUrl"] as? String ?? ""

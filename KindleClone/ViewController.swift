@@ -14,16 +14,38 @@ class ViewController: UITableViewController {
     var books : [Book]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //view.backgroundColor = UIColor.red
-       // setupBooks()
-        fetchBooks()
+        
+        setUpBarStyles()
+        setUpBarButtons()
         navigationItem.title = "Kindle"
         // remove additional cells from table
         tableView.tableFooterView = UIView()
         
         // register cell
         tableView.register(BookCell.self, forCellReuseIdentifier: "cellid")
+        fetchBooks()
+        
+        //
+        tableView.backgroundColor = UIColor(white: 1, alpha: 0.3)
+        tableView.separatorColor = UIColor(white: 1, alpha: 0.2)
+    }
+    
+    func setUpBarStyles(){
+        print("wadee")
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 44/255, green: 40/255, blue: 40/255, alpha: 1)
+        
+        //set the title color
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    }
+    
+    func setUpBarButtons(){
+        let leftBtn = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = leftBtn
+        
+        let rightBtn = UIBarButtonItem(image: #imageLiteral(resourceName: "amazon_icon").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: nil)
+
+        navigationItem.rightBarButtonItem = rightBtn
     }
     
     // MARK : the number of rows
@@ -81,7 +103,7 @@ class ViewController: UITableViewController {
                             //print(books)
                             self.tableView.reloadData()
                         }
-                    }catch let jsonError{
+                    }catch _{
                         print("Failed to parse json properly")
                     }
                     //for book in booksD
@@ -95,5 +117,47 @@ class ViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+        
+        let segmentedControl = UISegmentedControl(items: ["Cloud", "Device"])
+        segmentedControl.tintColor = .white
+        segmentedControl.selectedSegmentIndex = 0
+        //segmentedControl.tintColor = .white
+        footerView.addSubview(segmentedControl)
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        segmentedControl.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        segmentedControl.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
+        segmentedControl.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+        
+        
+        let gridBtn = UIButton(type: .system)
+        gridBtn.setImage(#imageLiteral(resourceName: "grid").withRenderingMode(.alwaysOriginal), for: .normal)
+        gridBtn.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(gridBtn)
+        gridBtn.leftAnchor.constraint(equalTo: footerView.leftAnchor, constant: 8).isActive = true
+        gridBtn.widthAnchor.constraint(equalToConstant:40).isActive = true
+        gridBtn.heightAnchor.constraint(equalToConstant:40).isActive = true
+        gridBtn.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+        
+        
+        /// handle the sort btn
+        let sortBtn = UIButton(type: .system)
+        sortBtn.setImage(#imageLiteral(resourceName: "sort").withRenderingMode(.alwaysOriginal), for: .normal)
+        sortBtn.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(sortBtn)
+        sortBtn.rightAnchor.constraint(equalTo: footerView.rightAnchor, constant: -8).isActive = true
+        sortBtn.widthAnchor.constraint(equalToConstant:40).isActive = true
+        sortBtn.heightAnchor.constraint(equalToConstant:40).isActive = true
+        sortBtn.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+
+        return footerView
+    }
 }
 

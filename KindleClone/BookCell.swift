@@ -46,6 +46,7 @@ class BookCell: UITableViewCell {
         //this is a computed propert
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         //label.backgroundColor = .red
         return label
     }()
@@ -54,6 +55,7 @@ class BookCell: UITableViewCell {
         //this is a computed propert
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .lightGray
         //label.backgroundColor = .green
         return label
     }()
@@ -69,7 +71,7 @@ class BookCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         // fill the cell with the correponding views with thier constraints
-        
+        backgroundColor = .clear
         addSubview(self.bookImage)
         //add the image
         bookImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8.0).isActive = true
